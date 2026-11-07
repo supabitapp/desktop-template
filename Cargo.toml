@@ -1,0 +1,12 @@
+[package]
+name = "desktop-template"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[dependencies]
+rune = { git = "https://github.com/anomalyco/rune.git", rev = "53c7f60f51ce12bd5da53145d9d86ce1552324e4" }
+
+[profile.release]
+strip = true
