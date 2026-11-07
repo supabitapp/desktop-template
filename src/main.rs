@@ -14,5 +14,10 @@ fn view(_: &State, _: &mut Cx<State>) -> El {
 }
 
 fn main() {
-    rune::run(AppSpec::new("Desktop Template", (480.0, 320.0), || State, view));
+    rune::run(AppSpec::new(
+        "Desktop Template",
+        (480.0, 320.0),
+        || State,
+        view,
+    ));
 }

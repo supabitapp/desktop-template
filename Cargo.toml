@@ -10,3 +10,15 @@ rune = { git = "https://github.com/anomalyco/rune.git", rev = "53c7f60f51ce12bd5
 
 [profile.release]
 strip = true
+
+[lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+unused_must_use = "deny"
+
+[lints.clippy]
+await_holding_lock = "deny"
+await_holding_refcell_ref = "deny"
+dbg_macro = "deny"
+todo = "warn"
+unwrap_used = "warn"
+expect_used = "warn"
