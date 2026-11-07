@@ -20,3 +20,6 @@ executable runs without the Visual C++ Redistributable.
 
 CI builds a release executable on all three OSes and uploads each one's
 headless render as an artifact.
+
+Linux builds link `libxkbcommon` (`libxkbcommon-dev` on Debian/Ubuntu,
+`libxkbcommon` on Arch).
