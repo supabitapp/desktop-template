@@ -1,0 +1,31 @@
+[tools]
+mr-boxington = "1.29.2"
+rust = { version = "1.99.1", components = "clippy,rustfmt", profile = "minimal", mr_boxington = true }
+
+[tasks.dev]
+description = "Open the window"
+run = "cargo run"
+
+[tasks.snap]
+description = "Render headless to a PNG"
+usage = 'arg "[out]" default="hello.png"'
+run = 'cargo run --release -- --snap ${usage_out}'
+
+[tasks.fmt]
+description = "Format the code"
+run = "cargo fmt"
+
+[tasks.lint]
+description = "Check formatting and clippy"
+run = [
+  "cargo fmt --check",
+  "cargo clippy --locked --all-targets -- -D warnings",
+]
+
+[tasks.build]
+description = "Build the release executable"
+run = "cargo build --locked --release"
+
+[tasks.ci]
+description = "Everything CI runs"
+depends = ["lint", "build"]
