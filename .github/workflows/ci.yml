@@ -30,7 +30,7 @@ jobs:
           if [ "$RUNNER_OS" = Linux ]; then
             export VK_ICD_FILENAMES=$(ls /usr/share/vulkan/icd.d/lvp_icd*.json | head -1)
           fi
-          ./target/release/desktop-template --snap hello-${{ runner.os }}.png
+          mise run snap hello-${{ runner.os }}.png
       - uses: actions/upload-artifact@v4
         with:
           name: hello-${{ runner.os }}

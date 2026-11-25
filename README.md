@@ -17,8 +17,14 @@ mise run ci           # everything CI runs
 ```
 
 Rune isn't on crates.io; `Cargo.toml` pins one git rev of its `dev` branch.
-Bump it by changing `rev` and running `cargo update -p rune`. Bump Rust by
+Cargo doesn't apply a dependency's `[patch.crates-io]`, so `Cargo.toml`
+repeats Rune's patched crates (winit, wgpu-hal, and others) at the same rev.
+To bump, change every `rev`, compare the `[patch.crates-io]` list with Rune's
+own `Cargo.toml` at that rev, and run `cargo update -p rune`. Bump Rust by
 changing `rust` in `mise.toml`.
+
+Release builds leave out Rune's headless tooling (`--snap` and friends), so
+`mise run snap` renders from a debug build.
 
 On Linux without a GPU, render on Mesa's lavapipe:
 `VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/lvp_icd.json cargo run -- --snap hello.png`.

@@ -9,7 +9,7 @@ run = "cargo run"
 [tasks.snap]
 description = "Render headless to a PNG"
 usage = 'arg "[out]" default="hello.png"'
-run = 'cargo run --release -- --snap ${usage_out}'
+run = 'cargo run --locked -- --snap ${usage_out}'
 
 [tasks.fmt]
 description = "Format the code"

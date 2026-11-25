@@ -6,7 +6,15 @@ license = "MIT"
 publish = false
 
 [dependencies]
-rune = { git = "https://github.com/anomalyco/rune.git", rev = "53c7f60f51ce12bd5da53145d9d86ce1552324e4" }
+rune = { git = "https://github.com/anomalyco/rune.git", rev = "9d4b4636f1f7e6d172053a0b6469a334c0bfc227" }
+
+[patch.crates-io]
+winit = { git = "https://github.com/anomalyco/rune.git", rev = "9d4b4636f1f7e6d172053a0b6469a334c0bfc227" }
+sctk-adwaita = { git = "https://github.com/anomalyco/rune.git", rev = "9d4b4636f1f7e6d172053a0b6469a334c0bfc227" }
+parley_engine = { git = "https://github.com/anomalyco/rune.git", rev = "9d4b4636f1f7e6d172053a0b6469a334c0bfc227" }
+wgpu-hal = { git = "https://github.com/anomalyco/rune.git", rev = "9d4b4636f1f7e6d172053a0b6469a334c0bfc227" }
+accesskit_windows = { git = "https://github.com/anomalyco/rune.git", rev = "9d4b4636f1f7e6d172053a0b6469a334c0bfc227" }
+accesskit_macos = { git = "https://github.com/anomalyco/rune.git", rev = "9d4b4636f1f7e6d172053a0b6469a334c0bfc227" }
 
 [profile.release]
 strip = true
