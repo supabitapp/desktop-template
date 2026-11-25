@@ -1,0 +1,30 @@
+name: Template
+options:
+  minimumXcodeGenVersion: 2.46.0
+  bundleIdPrefix: com.example
+  deploymentTarget:
+    iOS: "18.0"
+settings:
+  base:
+    SWIFT_VERSION: 6.0
+    MARKETING_VERSION: 0.1.0
+    CURRENT_PROJECT_VERSION: 1
+targets:
+  Template:
+    type: application
+    platform: iOS
+    sources:
+      - Template
+    info:
+      path: Template/Info.plist
+      properties:
+        CFBundleDisplayName: Desktop Template
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UIUserInterfaceStyle: Dark
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.example.desktoptemplate
+        ASSETCATALOG_COMPILER_APPICON_NAME: ""

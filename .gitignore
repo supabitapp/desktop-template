@@ -1,2 +1,9 @@
 /target
 *.png
+/ios/*.xcodeproj
+/ios/Template/Info.plist
+/ios/build
+/android/.gradle
+/android/build
+/android/app/build
+/android/local.properties

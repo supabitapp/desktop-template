@@ -14,6 +14,8 @@ mise run dev          # open the window
 mise run snap         # render headless to hello.png
 mise run lint         # rustfmt check and clippy with -D warnings
 mise run ci           # everything CI runs
+mise run ios          # build the iOS app for the simulator
+mise run android      # build the Android debug APK
 ```
 
 Rune isn't on crates.io; `Cargo.toml` pins one git rev of its `dev` branch.
@@ -39,3 +41,20 @@ headless render as an artifact.
 
 Linux builds link `libxkbcommon` (`libxkbcommon-dev` on Debian/Ubuntu,
 `libxkbcommon` on Arch).
+
+## Mobile
+
+Rune runs on desktop only, so the phone apps are native, the same "Hello,
+world" in Rune's dark theme colors. Nothing is shared with the desktop app.
+
+- `ios/` is a SwiftUI app. [XcodeGen](https://github.com/yonaskolb/XcodeGen)
+  generates `Template.xcodeproj` from `project.yml`; edit `project.yml`, not
+  the project. `mise run ios` installs XcodeGen and builds for the simulator
+  without signing. Open the generated project in Xcode to run it.
+- `android/` is a Jetpack Compose app built with the Gradle wrapper.
+  `mise run android` installs Java 17 and builds a debug APK. Gradle finds the
+  Android SDK through `ANDROID_HOME` or `android/local.properties`
+  (Android Studio writes it).
+
+Both use the placeholder ID `com.example.desktoptemplate`. CI builds each on
+every push and pull request.

@@ -29,3 +29,18 @@ run = "cargo build --locked --release"
 [tasks.ci]
 description = "Everything CI runs"
 depends = ["lint", "build"]
+
+[tasks.ios]
+description = "Build the iOS app for the simulator"
+tools = { xcodegen = "2.48.0" }
+dir = "ios"
+run = [
+  "xcodegen generate --quiet",
+  "xcodebuild -project Template.xcodeproj -scheme Template -destination 'generic/platform=iOS Simulator' -derivedDataPath build CODE_SIGNING_ALLOWED=NO -quiet build",
+]
+
+[tasks.android]
+description = "Build the Android debug APK"
+tools = { java = "temurin-17" }
+dir = "android"
+run = "./gradlew --no-daemon assembleDebug"

@@ -35,3 +35,17 @@ jobs:
         with:
           name: hello-${{ runner.os }}
           path: hello-${{ runner.os }}.png
+
+  ios:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: jdx/mise-action@v4
+      - run: mise run ios
+
+  android:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - uses: jdx/mise-action@v4
+      - run: mise run android
